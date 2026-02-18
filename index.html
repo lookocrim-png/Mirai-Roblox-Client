@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirai ;) - Next Gen Execution</title>
+    <style>
+        :root {
+            --primary: #ff66a3;
+            --bg: #050505;
+            --text: #ffffff;
+            --text-muted: #a1a1aa;
+            --border: #27272a;
+            --x: 50%;
+            --y: 50%;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; scroll-behavior: smooth;}
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at var(--x) var(--y), rgba(255, 102, 163, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; 
+            background: rgba(5,5,5,0.7); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); 
+        }
+        .logo { font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 10px; letter-spacing: 1px; flex: 1; }
+        .nav-links-container { flex: 2; display: flex; justify-content: center; }
+        .nav-links { display: flex; gap: 30px; background: rgba(255,255,255,0.05); padding: 8px 25px; border-radius: 30px; border: 1px solid var(--border); }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: 0.2s; font-weight: 600;}
+        .nav-links a:hover { color: var(--primary); }
+        .btn-group { display: flex; gap: 15px; flex: 1; justify-content: flex-end; align-items: center;}
+        .btn { padding: 8px 20px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; transition: 0.2s; text-decoration: none; font-weight: bold; border: none;}
+        .btn-discord { background: transparent; border: 1px solid var(--border); color: white; }
+        .btn-discord:hover { background: var(--border); border-color: var(--primary); color: var(--primary);}
+        .dropdown { position: relative; display: inline-block; }
+        .btn-download { background: var(--primary); color: #000; box-shadow: 0 0 15px rgba(255, 102, 163, 0.4); }
+        .btn-download:hover { background: #ff85b8; transform: translateY(-1px);}
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; right: 0; background-color: #121214; min-width: 180px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid var(--border); border-radius: 8px; z-index: 1; margin-top: 10px; overflow: hidden;
+        }
+        .dropdown-content a { color: var(--text-muted); padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; transition: 0.2s; }
+        .dropdown-content a:hover { background-color: var(--border); color: white; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .hero { position: relative; text-align: center; padding: 160px 20px 100px; border-bottom: 1px solid var(--border); overflow: hidden; }
+        .hero::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4), rgba(5,5,5,1)), url('https://wallpapers.com/images/hd/yuno-gasai-4k-anime-girl-mv868j9a652y031t.jpg') no-repeat center center/cover;
+            opacity: 0.7;
+        }
+        .hero h1 { font-size: 72px; font-weight: 900; margin-bottom: 20px; text-shadow: 0 5px 30px rgba(0,0,0,0.9); letter-spacing: -2px; line-height: 1.1;}
+        .hero h1 span { color: var(--primary); background: linear-gradient(45deg, var(--primary), #b966ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 20px; max-width: 650px; margin: 0 auto 40px auto; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.9); }
+
+        section { padding: 80px 50px; max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 36px; margin-bottom: 30px; text-align: center; font-weight: 800; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-text p { color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; font-size: 16px; }
+        .highlight { color: var(--primary); font-weight: bold; }
+
+        .ui-mockup-container {
+            background: #121214; padding: 10px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .ui-mockup-container img { width: 100%; border-radius: 8px; display: block; }
+
+        .video-container {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px;
+            border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.3); background: #09090b;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-placeholder {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; color: var(--text-muted);
+        }
+        .play-btn { font-size: 60px; color: var(--primary); opacity: 0.8; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">☁ Mirai ;)</div>
+        <div class="nav-links-container">
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#demo">Demo</a>
+            </div>
+        </div>
+        <div class="btn-group">
+            <a href="https://discord.gg/nUxSj5MtVd" target="_blank" class="btn btn-discord">Islands Discord</a>
+            <div class="dropdown">
+                <button class="btn btn-download">Download ▼</button>
+                <div class="dropdown-content">
+                    <a href="#">🚀 Download New UI v2.0</a>
+                    <a href="#">📦 Download Old UI (Legacy)</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero" id="home">
+        <h1>Dominate with <span>Mirai ;)</span></h1>
+        <p>The most reliable, keyless script execution platform designed for performance and stability. Experience the future of execution.</p>
+    </div>
+
+    <section id="about">
+        <h2>About The Interface</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Mirai features a completely redesigned, <span class="highlight">modern user interface</span> built for speed and ease of use. We ditched the cluttered old designs for something clean, responsive, and beautiful.</p>
+                <p>Navigate seamlessly between your Dashboard, the powerful multi-tab Executor, the live Client Manager, and extensive Settings with our new collapsible sidebar. The dark mode aesthetic, accented with neon pink and customizable blur effects, ensures it looks great on any setup.</p>
+            </div>
+            <div class="ui-mockup-container">
+                <img src="website.png" alt="Mirai UI Preview">
+            </div>
+        </div>
+    </section>
+
+    <section id="demo">
+        <h2>See It In Action</h2>
+        <div class="video-container">
+            <div class="video-placeholder">
+                <div class="play-btn">▶</div>
+                <p>Demo Video Placeholder (Add YouTube Embed Link)</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const body = document.querySelector('body');
+        document.addEventListener('mousemove', (e) => {
+            body.style.setProperty('--x', e.clientX + 'px');
+            body.style.setProperty('--y', e.clientY + 'px');
+        });
+    </script>
+</body>
+</html>
